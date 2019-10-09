@@ -5,15 +5,27 @@ class Dropdown extends Component {
 		super(props);
 	}
 	render() {
-        const { listgrade, listboard, listwebgrade, listexamtargets, titleGrade, titleBoard, titleExamTargets, titleWebGrade } = this.props;
+        const { productName, productTitle, band, bandTitle, subBand, subTitle } = this.props;
 		return (
 			<div className="dropdown">
-				<div class="dropdown-container">
+				<div className="dropdown-container">
 					<div>
 						<select>
-							<option>{titleGrade}</option>
-							{listgrade && listgrade.length > 0 &&
-								listgrade.map((item, index) => (
+							<option>{productTitle}</option>
+							{productName && productName.length > 0 &&
+								productName.map((item, index) => (
+									<option value={item} key={index}>
+										{item}
+									</option>
+								))}
+						</select>
+					</div>
+					<div>
+					{/* disabled ="productName.length > 0 " */}
+						<select>
+							<option>{bandTitle}</option>
+							{band && band.length > 0 &&
+								band.map((item, index) => (
 									<option value={item} key={index}>
 										{item}
 									</option>
@@ -22,31 +34,9 @@ class Dropdown extends Component {
 					</div>
 					<div>
 						<select>
-							<option>{titleBoard}</option>
-							{listboard && listboard.length > 0 &&
-								listboard.map((item, index) => (
-									<option value={item} key={index}>
-										{item}
-									</option>
-								))}
-						</select>
-					</div>
-					<div>
-						<select>
-							<option>{titleWebGrade}</option>
-							{listwebgrade && listwebgrade.length > 0 &&
-								listwebgrade.map((item, index) => (
-									<option value={item} key={index}>
-										{item}
-									</option>
-								))}
-						</select>
-					</div>
-					<div>
-						<select>
-							<option>{titleExamTargets}</option>
-							{listexamtargets && listexamtargets.length > 0 &&
-								listexamtargets.map((item, index) => (
+							<option>{subTitle}</option>
+							{subBand && subBand.length > 0 &&
+								subBand.map((item, index) => (
 									<option value={item} key={index}>
 										{item}
 									</option>
